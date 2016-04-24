@@ -1,0 +1,10 @@
+body {
+  background: #ECEFF1;
+  color: rgba(38, 50, 56, 0.87); }
+
+.container {
+  margin: 1rem auto;
+  max-width: 500px; }
+
+.validation-error {
+  color: #d9534f; }

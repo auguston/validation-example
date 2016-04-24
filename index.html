@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
@@ -55,3 +56,105 @@
   
   </body>
 </html>
+=======
+<html lang="zh-tw"></html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Jqueryvalidation表單驗證</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="assets/css/screen.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="page-header">Jqueryvalidation的驗證方法</h2>
+        <div class="alert alert-warning">使用的套件：<a href="https://jqueryvalidation.org/" target="_blank">Validation</a></div>
+        <form id="validation-form">
+          <div class="form-group">
+            <label for="name">姓名：</label>
+            <input id="name" type="text" name="name" autofocus="autofocus" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="phone">電話：</label>
+            <input id="phone" type="tel" name="phone" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="birth">生日：</label>
+            <input id="birth" type="text" name="birth" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="email">email：</label>
+            <input id="email" type="email" name="email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="password">密碼：</label>
+            <input id="password" type="password" name="password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="check_password">確認密碼：</label>
+            <input id="check_password" type="password" name="check_password" class="form-control"/>
+          </div>
+          <button type="submit" class="btn btn-block btn-primary">送出</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="assets/vendor/jquery-1.12.3.min.js"></script>
+  <!--	引用jqueryvalidation-->
+  <script src="assets/vendor/validation/jquery.validate.min.js"></script>
+  <!--	引用jqueryvalidation 中文化資料-->
+  <script src="assets/vendor/validation/messages_zh_TW.min.js"></script>
+  <script>
+    $('#validation-form').validate({
+    	//	錯誤訊息的class名稱
+    	errorClass: 'help-block validation-error',
+    
+    	//	驗證規則
+    	rules: {
+    		//	'欄位名稱': 參數
+    		'name': {
+    			//	required 是否為必填
+    			required: true,
+    			//	maxlength 最多字元數
+    			maxlength: 10,
+    			//	minlength 最少字元數
+    			minlength: 3
+    		},
+    		'phone': {
+    			required: true,
+    			maxlength: 10,
+    			minlength: 10,
+    			//	number 是否只能填數字
+    			number: true
+    		},
+    		'birth': {
+    			required: true,
+    			//	dateISO 驗證是否為日期
+    			dateISO: true
+    		},
+    		'email': {
+    			required: true,
+    			//	是否為email格式
+    			email: true
+    		},
+    		'password': {
+    			required: true
+    		},
+    		'check_password': {
+    			required: true,
+    			//	equalTo 與哪個欄位做對照
+    			equalTo: '#password'
+    		}
+    
+    	},
+    
+    	//	錯誤時的顯示訊息，沒有填寫就是預設訊息
+    	messages: {}
+    });
+  </script>
+</body>
+>>>>>>> master

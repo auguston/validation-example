@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+html(lang="zh-tw")
+head
+	meta(charset="UTF-8")
+	meta(http-equiv="X-UA-Compatible", content="IE=edge")
+	meta(name="viewport", content="width=device-width, initial-scale=1")
+	title html5表單驗證
+	link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+	link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css",  integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r", crossorigin="anonymous")
+	link(rel="stylesheet", href="assets/css/screen.css")
+body
+	.container
+		.row
+			.col-md-12
+				h2.page-header Html5的驗證方法
+				.alert.alert-warning
+					| 測試後，chrome、opera能使用html5的方法。firefox無法判斷minlength。safari都無法判斷。
+					a(href="http://www.quirksmode.org/html5/inputs/", target="_blank") 支援對照表
+				form#validation-form
+					.form-group
+						label(for="name") 姓名：
+						input#name.form-control(type="text", name="name", autofocus, required)
+					.help-block
+						code &lt;input type="XXX" autofocus&gt;
+						| 就可以讓這個input在頁面讀取後就focus。
+					.help-block
+						code &lt;input type="XXX" required&gt;
+						| 就可以讓這個input為必填。
+
+					.form-group
+						label(for="phone") 電話：
+						input#phone.form-control(type="tel", name="phone", maxlength="10", minlength="10", required)
+					.help-block
+						code &lt;maxlength="XX"&gt;
+						| 限制input最多填幾個字元。
+					.help-block
+						code &lt;minlength="XX"&gt;
+						| 限制input最少填幾個字元。
+
+					.form-group
+						label(for="browsers") 使用瀏覽器
+						input.form-control(list="browsers", name="browser")
+						datalist#browsers
+							option(value="Internet Explorer")
+							option(value="Firefox")
+							option(value="Chrome")
+							option(value="Opera")
+							option(value="Safari")
+					.help-block
+						code &lt;input list="XXX"&gt; 、 &lt;datalist&gt;
+						| 就可以讓這個input出現建議填寫項目。
+
+					.form-group
+						label(for="email") email：
+						input#email.form-control(type="email", name="email", required)
+
+					.help-block
+						code &lt;input type="email"&gt;
+						| 就可以做email驗證，若不是email格式會出現錯誤訊息。
+
+					button.btn.btn-block.btn-primary(type="submit") 送出
